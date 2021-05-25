@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\QuizCreateRequest;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
@@ -36,9 +37,11 @@ class QuizController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuizCreateRequest  $request)
     {
-        dd($request->all());
+        #dd($request->all());
+        Quiz::create($request->post());
+        return redirect()->route('quizzes.index')->withSuccess('Quiz başarıyla oluşturuldu');
     }
 
     /**
