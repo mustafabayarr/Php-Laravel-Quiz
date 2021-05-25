@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
+use function GuzzleHttp\Promise\all;
 
 class QuizController extends Controller
 {
@@ -26,7 +27,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.quiz.create');
     }
 
     /**
@@ -37,7 +38,7 @@ class QuizController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
