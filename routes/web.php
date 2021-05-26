@@ -30,6 +30,7 @@ Route::group(['middleware' => ['auth', 'isAdmin'],'prefix' => 'admin'   ], funct
         Route::post( '/store',[QuizController::class,'store'])->name('quizzes.store');
         Route::get('{id}/edit',[QuizController::class,'edit'])->name('quizzes.edit');
         Route::post('{id}/update',[QuizController::class,'update'])->name('quizzes.update');
+        Route::get('{id}/destroy',[QuizController::class,'destroy'])->name('quizzes.destroy');
     });
 
 });
