@@ -6,7 +6,7 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{route('quizzes.edit',['id'=>$quiz->id])}}" method="POST">
+            <form action="{{route('quizzes.update',['id'=>$quiz->id])}}" method="POST">
                 @csrf
                 <div class="form-group">
                     <label for="">Quiz Başlığı</label>
@@ -22,10 +22,10 @@
                 </div>
                 <div id="finishedInput" @if(!$quiz->finished_at) style="display: none" @endif class="form-group">
                     <label for="">Bitiş Tarihi</label>
-                    <input type="datetime-local" name="finished_at" value="{{date('Y-m-d\TH:i',strtotime($quiz->finished_at))}}" class="form-control">
+                    <input type="datetime-local" name="finished_at" @if($quiz->finished_at) value="{{date('Y-m-d\TH:i',strtotime($quiz->finished_at))}}" @endif class="form-control">
                 </div>
                 <div class="d-grid gap-2">
-                    <button type="submit" class="btn btn-primary">Quiz Oluştur</button>
+                    <button type="submit" class="btn btn-primary">Quiz Güncelle</button>
                 </div>
             </form>
         </div>
