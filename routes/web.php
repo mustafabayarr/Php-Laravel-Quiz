@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth', 'isAdmin'],'prefix' => 'admin'   ], funct
         Route::get('/',[QuizController::class,'index'])->name('quizzes.index');
         Route::get('/create',[QuizController::class,'create'])->name('quizzes.create');
         Route::post( '/store',[QuizController::class,'store'])->name('quizzes.store');
+        Route::get('{id}/edit',[QuizController::class,'edit'])->name('quizzes.edit');
     });
 
 });
