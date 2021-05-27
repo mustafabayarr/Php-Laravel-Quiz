@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title">
-                <a href="{{route('quizzes.create')}}" class="btn btn-sm btn-primary"> Soru Oluştur</a>
+                <a href="{{route('questions.create',$quiz->id)}}" class="btn btn-sm btn-primary"> Soru Oluştur</a>
             </h5>
             <table class="table table-bordered table-sm">
                 <thead>
@@ -27,7 +27,7 @@
                         <td>{{$question->answer2}}</td>
                         <td>{{$question->answer3}}</td>
                         <td>{{$question->answer4}}</td>
-                        <td>{{substr($question->correct_answer,-1)}}</td>
+                        <td>{{substr($question->correct_answer,-1)}}.Cevap</td>
                         <td>
                             <a href="{{ route('quizzes.edit',['id'=>$question->id]) }}" class="btn btn-sm btn-primary">Düzenle</a>
                             <a href="{{ route('quizzes.destroy',['id'=>$question->id]) }}" class="btn btn-sm btn-danger">Sil</a>
