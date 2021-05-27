@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\QuestionController;
 use App\Http\Controllers\Admin\QuizController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +24,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
-Route::group(['middleware' => ['auth', 'isAdmin'],'prefix' => 'admin'   ], function () {
+Route::group(['middleware' => ['auth', 'isAdmin'],'prefix' => 'admin'], function () {
     Route::prefix('quizzes')->group(function () {
         Route::get('/',[QuizController::class,'index'])->name('quizzes.index');
         Route::get('/create',[QuizController::class,'create'])->name('quizzes.create');
@@ -32,5 +33,7 @@ Route::group(['middleware' => ['auth', 'isAdmin'],'prefix' => 'admin'   ], funct
         Route::post('{id}/update',[QuizController::class,'update'])->name('quizzes.update');
         Route::get('{id}/destroy',[QuizController::class,'destroy'])->name('quizzes.destroy');
     });
-
+    Route::prefix('quiz')->group(function (){
+        Route::get('/{quiz_id}/questions',[QuestionController::class,'index'])->name('questions.index');
+    });
 });
