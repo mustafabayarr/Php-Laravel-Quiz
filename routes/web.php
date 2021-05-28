@@ -37,5 +37,7 @@ Route::group(['middleware' => ['auth', 'isAdmin'],'prefix' => 'admin'], function
         Route::get('/{quiz_id}/questions',[QuestionController::class,'index'])->name('questions.index');
         Route::get('/{quiz_id}/questions/create',[QuestionController::class,'create'])->name('questions.create');
         Route::post('/{quiz_id}/questions/store',[QuestionController::class,'store'])->name('questions.store');
+        Route::get('/{quiz_id}/questions/edit/{id}',[QuestionController::class,'edit'])->name('questions.edit');
+        Route::post('/{quiz_id}/questions/update/{id}',[QuestionController::class,'update'])->name('questions.update');
     });
 });

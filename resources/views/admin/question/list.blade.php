@@ -29,7 +29,7 @@
                         <td>{{$question->answer4}}</td>
                         <td>{{substr($question->correct_answer,-1)}}.Cevap</td>
                         <td>
-                            <a href="{{ route('quizzes.edit',['id'=>$question->id]) }}" class="btn btn-sm btn-primary">Düzenle</a>
+                            <a href="{{ route('questions.edit',['quiz_id'=>$quiz->id,'id'=>$question->id ])}}" class="btn btn-sm btn-primary">Düzenle</a>
                             <a href="{{ route('quizzes.destroy',['id'=>$question->id]) }}" class="btn btn-sm btn-danger">Sil</a>
                         </td>
                     </tr>
